@@ -1,0 +1,13 @@
+# TitanArtMaster.pro design brief
+- Design read: A premium renovation service for apartment owners who want careful finishing and a clear process.
+- Concept spine: Reveal a finished home through layers of craft, from broad architectural space to precise details.
+- Delivery tier: Cinematic depth using scroll parallax and perspective layering.
+- Locked palette: #151719 graphite, #202325 slate, #f0f0ed chalk, #b8a2b7 muted mauve accent.
+- Locked type: Arial system sans for a direct, confident, accessible service brand.
+- Animation mode: animated-website requested. Image generation is unavailable on this account, so the site uses local architectural photography and CSS depth/parallax with reduced-motion fallbacks rather than a generated scrub film.
+- Journey shape: Single continuous concept adapted to CSS parallax. Chapters: finished interior, craft details, scope of work, structured process, contact.
+- World grammar: cool slate shadows, natural daylight, muted mauve accent, realistic residential interiors.
+- Mobile framing: centered focal points, hamburger navigation, central image crops, reduced motion support.
+- Section plan: cinematic hero, asymmetric introduction, full-bleed manifesto, editorial service rows, process, guarantee band, photographic contact CTA.
+- Asset plan: locally stored architectural interior photographs for hero, room details and metadata.
+- CTA inventory: Discuss project; Explore services; Learn more; Call now.
