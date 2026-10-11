@@ -128,3 +128,13 @@
   .ceiling-grid:hover .ceiling-card{flex:initial;}
 }
 @media(prefers-reduced-motion:reduce){.ceiling-card,.ceiling-photo,.ceiling-card h3{transition:none!important;}}
+
+
+/* Keep social SVG icons visible and consistently sized in every deployment. */
+.contact-socials .social-icon-button svg{display:block;width:24px;height:24px;flex:0 0 24px;stroke:currentColor;}
+.nav-instagram svg{display:block;flex:0 0 15px;stroke:currentColor;}
+.footer-socials{gap:18px;}
+.footer-social{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;}
+.footer-social svg{display:block;width:18px;height:18px;flex:0 0 18px;stroke:currentColor;}
+.footer-social:hover svg{color:var(--accent);}
+@media(max-width:560px){.footer-socials{width:100%;justify-content:flex-start;flex-wrap:wrap;gap:16px;}.footer-social{font-size:10px;}}
