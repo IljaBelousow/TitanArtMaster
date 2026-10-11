@@ -215,3 +215,22 @@
  .footer small{font-size:9px}
 }
 @media(prefers-reduced-motion:reduce){.footer-social{transition:none}}
+
+
+/* Full-colour brand logos for contact and footer social links. */
+.social-brand-icon{
+  display:block;
+  width:24px;
+  height:24px;
+  flex:0 0 24px;
+  object-fit:contain;
+}
+.instagram-brand-icon{width:25px;height:25px;flex-basis:25px;}
+.viber-brand-icon{width:27px;height:27px;flex-basis:27px;}
+.telegram-brand-icon{width:25px;height:25px;flex-basis:25px;}
+.footer-social .social-brand-icon{width:21px;height:21px;flex-basis:21px;}
+.footer-social .viber-brand-icon{width:23px;height:23px;flex-basis:23px;}
+@media(max-width:560px){
+  .footer-social .social-brand-icon{width:19px;height:19px;flex-basis:19px;}
+  .footer-social .viber-brand-icon{width:21px;height:21px;flex-basis:21px;}
+}
