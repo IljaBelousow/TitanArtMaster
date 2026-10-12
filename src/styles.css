@@ -234,3 +234,30 @@
   .footer-social .social-brand-icon{width:19px;height:19px;flex-basis:19px;}
   .footer-social .viber-brand-icon{width:21px;height:21px;flex-basis:21px;}
 }
+
+
+/* Premium social links and footer refinement */
+.footer-premium{display:block;padding:0 7vw;background:#151718;border-top:1px solid rgba(255,255,255,.14)}
+.footer-main{display:grid;grid-template-columns:1.05fr 1.2fr 1.4fr 1.6fr;gap:34px;align-items:start;padding:58px 0 48px}
+.footer-premium .footer-brand{align-self:start}
+.footer-manifesto{margin:5px 0 0;color:#b8bab7;font-size:13px;line-height:1.8}
+.footer-contact,.footer-social-area{display:flex;flex-direction:column;gap:15px}
+.footer-kicker{font-size:9px;letter-spacing:.18em;color:#b6a2b4}
+.footer-premium .footer-phone{font-size:clamp(16px,1.5vw,21px);letter-spacing:-.035em;color:#f4f3ef;white-space:nowrap}
+.footer-premium .footer-phone span{color:#c9b1c7;margin-left:8px}
+.footer-premium .footer-socials{display:flex;flex-wrap:wrap;gap:10px}
+.footer-premium .footer-social{display:inline-flex;align-items:center;gap:9px;padding:10px 12px;border:1px solid rgba(255,255,255,.18);border-radius:3px;font-size:11px;letter-spacing:0;color:#f0efed;transition:transform .2s,border-color .2s,background .2s}
+.footer-premium .footer-social .social-brand-icon{width:20px;height:20px;display:block;flex:none}
+.footer-premium .social-instagram .social-brand-icon{color:#e5b7d5}
+.footer-premium .social-telegram .social-brand-icon{color:#229ed9}
+.footer-premium .social-viber .social-brand-icon{color:#7360f2}
+.footer-premium .footer-social:hover{transform:translateY(-2px);border-color:#c9b1c7;background:rgba(255,255,255,.05)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.13);padding:20px 0 23px}
+.footer-bottom>span{font-size:9px;letter-spacing:.08em;color:#9b9e9b}
+.footer-bottom .back-top{font-size:9px;color:#f0efed}
+.footer-bottom .back-top span{color:#c9b1c7;margin-left:7px}
+.social-icon-button{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.28)}
+.social-icon-button .social-brand-icon{display:block;width:26px;height:26px}
+.social-icon-button:hover{background:rgba(255,255,255,.1);border-color:#d4c1d2;color:#fff;transform:translateY(-3px)}
+@media(max-width:1000px){.footer-main{grid-template-columns:1fr 1fr;row-gap:32px}.footer-social-area{grid-column:2;grid-row:2}}
+@media(max-width:560px){.footer-premium{padding:0 7vw}.footer-main{grid-template-columns:1fr;gap:27px;padding:42px 0 34px}.footer-social-area{grid-column:auto;grid-row:auto}.footer-premium .footer-phone{font-size:21px}.footer-bottom{align-items:flex-start;gap:12px}.footer-bottom>span:nth-child(2){width:100%;order:3}.footer-premium .footer-socials{gap:8px}.footer-premium .footer-social{padding:10px 11px}}
