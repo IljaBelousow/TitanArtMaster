@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { StructuredData } from "../components/StructuredData";
+import { ComplianceBanner } from "../components/ComplianceBanner";
 export const Route = createFileRoute("/")({ component: Index });
 const ceilingTypes = [
   { id: "matte", n: "01", title: "Матовые", text: "Спокойная поверхность с видом ровного окрашенного потолка.", image: "/assets/ceilings/matte.jpg" },
@@ -96,7 +97,8 @@ function Index() {
           <div className="footer-socials footer-social-names" aria-label="Социальные сети"><a className="footer-social" href="https://www.instagram.com/titanartmaster/" target="_blank" rel="noopener noreferrer">Instagram</a><a className="footer-social" href="https://t.me/+375333075077" target="_blank" rel="noopener noreferrer">Telegram</a><a className="footer-social" href="viber://chat?number=%2B375333075077">Viber</a></div>
         </div>
       </div>
-      <div className="footer-bottom"><span>© {new Date().getFullYear()} TITANARTMASTER.PRO</span><span>Ремонт квартир · Все виды отделочных работ</span><a href="#home" className="back-top">НАВЕРХ <span aria-hidden="true">↑</span></a></div>
+      <div className="footer-bottom"><span>© {new Date().getFullYear()} TITANARTMASTER.PRO</span><span>Ремонт квартир · Все виды отделочных работ</span><a href="/legal">Правовая информация</a><a href="#home" className="back-top">НАВЕРХ <span aria-hidden="true">↑</span></a></div>
     </footer>
+    <ComplianceBanner />
   </main>;
 }
