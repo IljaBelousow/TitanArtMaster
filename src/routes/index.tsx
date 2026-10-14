@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { StructuredData } from "../components/StructuredData";
-import { ComplianceBanner } from "../components/ComplianceBanner";
 export const Route = createFileRoute("/")({ component: Index });
 const ceilingTypes = [
   { id: "matte", n: "01", title: "Матовые", text: "Спокойная поверхность с видом ровного окрашенного потолка.", image: "/assets/ceilings/matte.jpg" },
@@ -99,6 +98,5 @@ function Index() {
       </div>
       <div className="footer-bottom"><span>© {new Date().getFullYear()} TITANARTMASTER.PRO</span><span>Ремонт квартир · Все виды отделочных работ</span><a href="/legal">Правовая информация</a><a href="#home" className="back-top">НАВЕРХ <span aria-hidden="true">↑</span></a></div>
     </footer>
-    <ComplianceBanner />
   </main>;
 }
