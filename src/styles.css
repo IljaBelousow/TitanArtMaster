@@ -315,3 +315,21 @@
  .footer-premium .footer-bottom>span:nth-child(2){grid-column:1/-1;grid-row:2;width:auto;order:initial}
  .footer-premium .footer-bottom .back-top{grid-column:2;grid-row:1}
 }
+
+
+/* Keep a tap-to-call number visible when mobile navigation is collapsed */
+.header-phone-mobile{display:none}
+@media(max-width:900px){
+ .topbar{gap:10px}
+ .header-phone-mobile{display:inline-flex;align-items:center;justify-content:center;margin-left:auto;color:#fff;border:1px solid #d8c3d7;padding:10px 11px;font-size:clamp(11px,2.7vw,14px);font-weight:700;white-space:nowrap;letter-spacing:-.02em;flex-shrink:0}
+ .menu-toggle{flex-shrink:0;padding:10px 2px 10px 8px}
+}
+@media(max-width:380px){
+ .topbar{padding-inline:4vw;gap:7px}
+ .brand{gap:7px}
+ .brand-mark{font-size:24px}
+ .brand-copy{font-size:9px;letter-spacing:.12em}
+ .brand-copy span{font-size:7px;letter-spacing:.16em}
+ .header-phone-mobile{font-size:10px;padding:9px 7px}
+ .menu-toggle{padding-left:4px}
+}
