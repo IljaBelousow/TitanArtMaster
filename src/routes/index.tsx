@@ -73,7 +73,17 @@ function Index() {
           <span className="brand-mark">T<span>A</span></span>
           <span className="brand-copy">TITAN<span>ARTMASTER.PRO</span></span>
         </a>
-        <p className="footer-manifesto">Ремонт квартир и отделка<br/>с вниманием к каждой детали.</p>
+        <div className="footer-intro">
+          <p className="footer-manifesto">Ремонт квартир и отделка<br/>с вниманием к каждой детали.</p>
+          <span className="footer-experience">20 лет опыта в ремонте</span>
+        </div>
+        <nav className="footer-navigation" aria-label="Навигация в подвале">
+          <span className="footer-kicker">РАЗДЕЛЫ САЙТА</span>
+          <a href="#services">Виды работ</a>
+          <a href="#advantages">Наши преимущества</a>
+          <a href="#process">Этапы работы</a>
+          <a href="#faq">Частые вопросы</a>
+        </nav>
         <div className="footer-contact">
           <span className="footer-kicker">ОБСУДИТЬ ПРОЕКТ</span>
           <a className="footer-phone" href="tel:+375333075077">+375 (33) 307-50-77 <span aria-hidden="true">↗</span></a>
