@@ -1,26 +1,10 @@
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import {
-  higgsfieldDesignInspectorVitePlugin,
-  higgsfieldDesignSourceBabelPlugin,
-} from "./src/module/design-inspector/vite";
 import svgr from "vite-plugin-svgr";
 import { defaultServerConditions, defineConfig } from "vite";
-import { fileURLToPath } from "node:url";
 
-// The vendored @higgsfield/quanta components import their glyphs from the private
-// Nexus-only `@higgsfield-ai/icons`. Generated sites build on the PUBLIC npm
-// registry, so we redirect every `@higgsfield-ai/icons/*` import to a lucide
-// shim instead (see src/lib/quanta-icons.ts). tsconfig.json has
-// the matching `paths` entry so type-checking resolves it too.
-const QUANTA_ICONS_SHIM = fileURLToPath(
-  new URL("./src/lib/quanta-icons.ts", import.meta.url),
-);
-
-export default defineConfig(({ command, mode }) => {
-  const designInspectorEnabled = process.env.HF_DESIGN_INSPECTOR === "1" || mode === "design";
-
+export default defineConfig(({ command }) => {
   return {
     // fsevents can miss edits under some setups (bun-launched dev, synced/virtual
     // dirs), leaving HMR dead so changes only appear after a manual restart.
@@ -28,10 +12,7 @@ export default defineConfig(({ command, mode }) => {
     server: {
       watch: { usePolling: true, interval: 150 },
     },
-    resolve: {
-      tsconfigPaths: true,
-      alias: [{ find: /^@higgsfield-ai\/icons(\/.*)?$/, replacement: QUANTA_ICONS_SHIM }],
-    },
+    resolve: { tsconfigPaths: true },
     // The server bundle runs as a Cloudflare Worker — there is no node_modules
     // at runtime. Vite's default SSR build leaves npm deps as bare external
     // imports (h3, react, @tanstack/*, seroval, …), which resolve on a Node
@@ -90,7 +71,7 @@ export default defineConfig(({ command, mode }) => {
       // SSR build: `vite build` emits a Workers-shaped server bundle
       // (dist/server/server.js — `export default { fetch }`) plus dist/client
       // (hashed static assets). The platform publishes that as a per-tenant
-      // Worker on Workers for Platforms, served at <sub>.higgsfield.app/ (host
+      // Worker on Workers for Platforms, served at TitanArtMaster (host
       // root, so Vite's default base "/" — no base-path juggling).
       //
       // Rendering happens on the server per request, so site code must be
@@ -100,8 +81,7 @@ export default defineConfig(({ command, mode }) => {
       tanstackStart({
         server: { entry: "server" },
       }),
-      higgsfieldDesignInspectorVitePlugin(designInspectorEnabled),
-      react({
+react({
         babel: {
           plugins: designInspectorEnabled ? [higgsfieldDesignSourceBabelPlugin] : [],
         },
