@@ -7,7 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { SITE_THEME_COLOR } from "../site-theme";
 
@@ -55,10 +55,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    // Keep errors visible in the browser console without sending visitor data to a third-party SDK.
-  }, [error]);
-
   return (
     <main className="site-shell" style={{ minHeight: "100dvh", display: "grid", placeItems: "center", padding: "2rem" }}>
       <div style={{ maxWidth: 520, textAlign: "center" }}>

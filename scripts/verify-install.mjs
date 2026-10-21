@@ -39,9 +39,9 @@ for (const { name, files } of PACKAGES) {
 
 if (corrupt.length > 0) {
   // Self-heal once: drop the corrupt extractions and let bun re-materialize
-  // them. HF_INSTALL_HEAL guards recursion (the inner install re-runs this
+  // them. INSTALL_HEAL guards recursion (the inner install re-runs this
   // postinstall).
-  if (!process.env.HF_INSTALL_HEAL) {
+  if (!process.env.INSTALL_HEAL) {
     for (const { name, dir, missing } of corrupt) {
       console.warn(
         `${name} is PARTIALLY extracted — missing ${missing.length} file(s) ` +
@@ -56,7 +56,7 @@ if (corrupt.length > 0) {
     const r = spawnSync("bun", ["install", "--frozen-lockfile"], {
       cwd: ROOT,
       stdio: "inherit",
-      env: { ...process.env, HF_INSTALL_HEAL: "1" },
+      env: { ...process.env, INSTALL_HEAL: "1" },
     });
     process.exit(r.status ?? 1);
   }

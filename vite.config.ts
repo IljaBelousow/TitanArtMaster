@@ -81,11 +81,7 @@ export default defineConfig(({ command }) => {
       tanstackStart({
         server: { entry: "server" },
       }),
-react({
-        babel: {
-          plugins: designInspectorEnabled ? [higgsfieldDesignSourceBabelPlugin] : [],
-        },
-      }),
+react(),
       tailwindcss(),
     ],
   };
