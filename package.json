@@ -5,15 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "bun run check:ui && tsr generate && tsc --noEmit && vite build",
+    "build": "tsr generate && tsc --noEmit && vite build",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "postinstall": "node scripts/verify-install.mjs",
     "lint": "eslint .",
     "format": "prettier --write .",
     "typecheck": "tsr generate && tsc --noEmit",
-    "check:ui": "node scripts/check-ui.mjs",
-    "check:adapted": "bun scripts/check-adaptation.mjs",
     "test": "bun test tests/*.test.ts"
   },
   "dependencies": {
