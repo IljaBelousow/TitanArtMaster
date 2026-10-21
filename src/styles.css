@@ -559,3 +559,25 @@ html{scroll-padding-top:100px}
 @media (prefers-reduced-motion: reduce) {
   .topbar > .nav.nav-open { animation: none; }
 }
+
+
+/* Keep the primary phone number visible beside the burger on every screen size. */
+.header-phone-mobile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 103;
+  margin-left: auto;
+  padding: 10px 13px;
+  color: #f7f5f0;
+  border: 1px solid rgba(255,255,255,.42);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+@media (min-width: 901px) {
+  .topbar > .nav:not(.nav-open) { padding-inline: 210px; }
+  .header-phone-mobile { margin-left: auto; }
+}
