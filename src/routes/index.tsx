@@ -35,9 +35,17 @@ const services = [
   { n: "08", title: "Подбор и доставка материалов", text: "Помощь с выбором материалов под задачи помещения и организацией доставки.", image: "/assets/bathroom.jpg" },
 ];
 function Index() {
-  const [menuOpen, setMenuOpen] = useState(false);\n  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [ceilingsMenuOpen, setCeilingsMenuOpen] = useState(false);
-  const closeMenu = () => { setMenuOpen(false); setCeilingsMenuOpen(false); };\n\n  useEffect(() => {\n    const handleScroll = () => setScrolled(window.scrollY > 24);\n    handleScroll();\n    window.addEventListener("scroll", handleScroll, { passive: true });\n    return () => window.removeEventListener("scroll", handleScroll);\n  }, []);
+  const closeMenu = () => { setMenuOpen(false); setCeilingsMenuOpen(false); };
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (!menuOpen && !ceilingsMenuOpen) return;
