@@ -35,9 +35,9 @@ const services = [
   { n: "08", title: "Подбор и доставка материалов", text: "Помощь с выбором материалов под задачи помещения и организацией доставки.", image: "/assets/bathroom.jpg" },
 ];
 function Index() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);\n  const [scrolled, setScrolled] = useState(false);
   const [ceilingsMenuOpen, setCeilingsMenuOpen] = useState(false);
-  const closeMenu = () => { setMenuOpen(false); setCeilingsMenuOpen(false); };
+  const closeMenu = () => { setMenuOpen(false); setCeilingsMenuOpen(false); };\n\n  useEffect(() => {\n    const handleScroll = () => setScrolled(window.scrollY > 24);\n    handleScroll();\n    window.addEventListener("scroll", handleScroll, { passive: true });\n    return () => window.removeEventListener("scroll", handleScroll);\n  }, []);
 
   useEffect(() => {
     if (!menuOpen && !ceilingsMenuOpen) return;
@@ -60,7 +60,52 @@ function Index() {
 
   return <main className="site-shell">
     <StructuredData json={faqJsonLd} />
-    <header className="topbar"><a className="brand" href="#home" onClick={closeMenu}><span className="brand-mark">T<span>A</span></span><span className="brand-copy">TITAN<span>ARTMASTER.PRO</span></span></a><a className="header-phone-mobile" href="tel:+375333075077" aria-label="Позвонить +375 (33) 307-50-77">+375 (33) 307-50-77</a><button className="menu-toggle" aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><i/><i/></button><nav className={menuOpen ? "nav nav-open" : "nav"}><a href="#home" onClick={closeMenu}>Главная</a><a href="#services" onClick={closeMenu}>Виды работ</a><div className="nav-dropdown"><button className="nav-dropdown-trigger" aria-expanded={ceilingsMenuOpen} onClick={() => setCeilingsMenuOpen(!ceilingsMenuOpen)}>Натяжные потолки <span aria-hidden="true">⌄</span></button><div className={ceilingsMenuOpen ? "ceiling-dropdown ceiling-dropdown-open" : "ceiling-dropdown"}>{ceilingTypes.map(item => <a key={item.id} href={"#ceiling-" + item.id} onClick={closeMenu}>{item.title}</a>)}<a className="dropdown-all" href="#ceilings" onClick={closeMenu}>Все варианты потолков ↗</a></div></div><a href="#advantages" onClick={closeMenu}>Преимущества</a><a href="#process" onClick={closeMenu}>Этапы работы</a><a href="#contacts" onClick={closeMenu}>Контакты</a><a className="nav-call" href="tel:+375333075077">+375 (33) 307-50-77 <span>↗</span></a></nav></header>
+    <header className={scrolled ? "topbar topbar-scrolled" : "topbar"}>
+      <a className="brand" href="#home" onClick={closeMenu}>
+        <span className="brand-mark">T<span>A</span></span>
+        <span className="brand-copy">TITAN<span>ARTMASTER.PRO</span></span>
+      </a>
+      <nav className="desktop-nav" aria-label="Основная навигация">
+        <a href="#home" onClick={closeMenu}>Главная</a>
+        <a href="#services" onClick={closeMenu}>Виды работ</a>
+        <a href="#ceilings" onClick={closeMenu}>Натяжные потолки</a>
+        <a href="#advantages" onClick={closeMenu}>Преимущества</a>
+        <a href="#process" onClick={closeMenu}>Этапы работы</a>
+        <a href="#contacts" onClick={closeMenu}>Контакты</a>
+      </nav>
+      <div className="header-actions">
+        <a className="header-phone" href="tel:+375333075077">+375 (33) 307-50-77</a>
+        <button className={menuOpen ? "menu-toggle menu-toggle-open" : "menu-toggle"} type="button" aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+          <span/><span/><span/>
+        </button>
+      </div>
+      {menuOpen && <div className="menu-overlay" onClick={closeMenu}>
+        <button className="menu-backdrop" type="button" aria-label="Закрыть меню" onClick={closeMenu}/>
+        <aside className="menu-panel" onClick={(event) => event.stopPropagation()} aria-label="Меню сайта">
+          <nav className="menu-navigation" aria-label="Разделы сайта">
+            <a href="#home" onClick={closeMenu}>Главная <span>→</span></a>
+            <a href="#services" onClick={closeMenu}>Виды работ <span>→</span></a>
+            <a href="#ceilings" onClick={closeMenu}>Натяжные потолки <span>→</span></a>
+            <a href="#advantages" onClick={closeMenu}>Преимущества <span>→</span></a>
+            <a href="#process" onClick={closeMenu}>Этапы работы <span>→</span></a>
+            <a href="#faq" onClick={closeMenu}>Частые вопросы <span>→</span></a>
+            <a href="#contacts" onClick={closeMenu}>Контакты <span>→</span></a>
+          </nav>
+          <section className="menu-contact-block" aria-label="Телефон">
+            <a className="menu-phone" href="tel:+375333075077">+375 (33) 307-50-77</a>
+          </section>
+          <section className="menu-contact-block" aria-label="Социальные сети">
+            <p className="menu-caption">СВЯЗАТЬСЯ С НАМИ</p>
+            <div className="menu-socials">
+              <a href="https://www.instagram.com/titanartmaster/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+              <a href="https://t.me/+375333075077" target="_blank" rel="noopener noreferrer">Telegram ↗</a>
+              <a href="viber://chat?number=%2B375333075077">Viber ↗</a>
+            </div>
+          </section>
+          <a className="menu-contact-button" href="#contacts" onClick={closeMenu}>Связаться с нами <span>→</span></a>
+        </aside>
+      </div>}
+    </header>
     <section className="hero" id="home"><div className="hero-backdrop" aria-hidden="true"/><div className="hero-shade"/><div className="hero-orbit orbit-one"/><div className="hero-orbit orbit-two"/><div className="hero-content"><p className="eyebrow"><span className="eyebrow-line"/> РЕМОНТ И ОТДЕЛКА КВАРТИР</p><h1>Ремонт квартир<br/><em>под ключ</em></h1><p className="hero-desc">Все виды отделочных работ для вашей квартиры — с вниманием к деталям, материалам и результату.</p><div className="hero-actions"><a className="button-primary" href="#contacts">Обсудить проект <span>↗</span></a><a className="button-text" href="#services">Изучить услуги <span>↓</span></a></div></div><div className="hero-bottom"><span>ОТ ЧЕРНОВОЙ ОТДЕЛКИ ДО ФИНАЛЬНОГО ШТРИХА</span><span className="hero-bottom-right">TITAN ART MASTER <b>●</b> РЕМОНТ КВАРТИР</span></div><div className="hero-side-label">CRAFTED FOR EVERYDAY LIVING</div></section>
     <section className="intro section-pad" id="advantages"><div className="intro-index">01 / ПОДХОД</div><div><h2>Хороший ремонт<br/>чувствуется <em>в деталях.</em></h2><div className="intro-bottom"><p>Создаём комфортные интерьеры с вниманием к качеству работ, материалам и тому, как пространство будет жить каждый день.</p><div className="stat"><strong>20<span>+</span></strong><small>лет опыта работы</small></div></div></div></section>
     <section className="manifesto"><div className="manifesto-image" aria-hidden="true"/><div className="manifesto-overlay"/><div className="manifesto-copy"><p className="eyebrow"><span className="eyebrow-line"/> РЕМОНТ КВАРТИР ПОД КЛЮЧ</p><h2>От первой идеи<br/>до <em>готового дома.</em></h2><p>Организуем процесс последовательно и прозрачно. Поможем с подбором и доставкой материалов, чтобы вам было проще сосредоточиться на результате.</p><a className="circle-link" href="#contacts" aria-label="Связаться с нами">↗</a></div><div className="manifesto-number">20<br/><span>ЛЕТ ОПЫТА</span></div></section>
