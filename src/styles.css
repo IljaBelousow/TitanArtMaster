@@ -911,3 +911,248 @@ h1, h2, h3, h4, .brand-copy, .service-title h3 {
 .footer-social-icons { display:flex; align-items:center; gap:10px; }
 .footer-social-icons a.footer-social { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border:1px solid #ffffff55; border-radius:50%; color:#E9E8E3; transition:background .2s,color .2s,border-color .2s,transform .2s; }
 .footer-social-icons a.footer-social:hover { background:#C65D32; border-color:#C65D32; color:#fff; transform:translateY(-2px); }
+
+
+/* Shared Naumovich design system: palette, typography, controls and social icon treatment. */
+:root {
+  --bg: #E9E8E3;
+  --ink: #202322;
+  --muted: #646667;
+  --accent: #C65D32;
+  --accent-hover: #A94724;
+  --line: #B8B9B4;
+  --surface: #D7D7D2;
+  --radius: 0;
+  color-scheme: light;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: #E9E8E3;
+  color: #202322;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, h5, h6,
+.brand, .button-primary, .button-text, .menu-contact-button {
+  font-family: "Montserrat", Arial, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -.035em;
+}
+::selection { background: #C65D32; color: #fff; }
+:where(a, button):focus-visible { outline: 2px solid #C65D32; outline-offset: 4px; }
+
+/* Naumovich-style consistent outlined CTA buttons. */
+.button-primary,
+.menu-contact-button,
+.site-button,
+.site-button-on-dark {
+  min-height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid currentColor;
+  border-radius: 0;
+  padding: 15px 26px;
+  background: transparent;
+  color: #202322;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: .15em;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color .28s ease, background-color .28s ease, border-color .28s ease, transform .28s ease;
+}
+.button-primary:hover,
+.menu-contact-button:hover,
+.site-button:hover,
+.site-button-on-dark:hover {
+  transform: translateY(-2px);
+  border-color: #C65D32;
+  background: #C65D32;
+  color: #fff;
+}
+.hero .button-primary,
+.contact-section .button-primary,
+.menu-panel .menu-contact-button {
+  color: #E9E8E3;
+  border-color: #E9E8E3;
+}
+.hero .button-primary:hover,
+.contact-section .button-primary:hover,
+.menu-panel .menu-contact-button:hover {
+  color: #fff;
+  border-color: #C65D32;
+  background: #C65D32;
+}
+.button-primary span,
+.menu-contact-button span { color: inherit; }
+.button-text {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.button-text span { color: #C65D32; }
+.button-text:hover { color: #C65D32; }
+@media (max-width: 640px) {
+  .button-primary, .menu-contact-button, .site-button, .site-button-on-dark {
+    min-height: 52px;
+    max-width: 100%;
+    padding: 13px 18px;
+    font-size: 10px;
+    letter-spacing: .12em;
+  }
+}
+
+/* Typography and warm neutral surfaces match the Naumovich site. */
+.topbar {
+  background: rgba(32, 35, 34, .42);
+  border-bottom-color: rgba(255,255,255,.18);
+  box-shadow: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.topbar-scrolled {
+  background: rgba(233, 232, 227, .96);
+  border-bottom-color: rgba(184,185,180,.8);
+  box-shadow: 0 4px 18px rgba(32,35,34,.06);
+}
+.topbar-scrolled .brand,
+.topbar-scrolled .brand-copy,
+.topbar-scrolled .brand-copy span { color: #202322; }
+.topbar-scrolled .header-phone,
+.topbar-scrolled .menu-toggle { color: #202322; }
+.desktop-nav a, .nav-dropdown-trigger {
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color .25s ease, opacity .25s ease;
+}
+.desktop-nav a:hover, .nav-dropdown-trigger:hover { color: #C65D32; }
+.brand-mark { letter-spacing: -.09em; }
+.brand-mark span { color: #C65D32; }
+.brand-copy { letter-spacing: .16em; }
+.brand-copy span { letter-spacing: .22em; }
+
+.intro, .services, .ceilings, .inner-page {
+  background-color: #E9E8E3;
+}
+.intro { color: #202322; }
+.intro-index, .stat strong span { color: #C65D32; }
+.intro h2, .section-heading h2, .contact-content h2, .process h2, .guarantee h2 {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -.045em;
+}
+.intro-bottom { border-top-color: #B8B9B4; }
+.intro-bottom > p, .heading-note { color: #646667; }
+.services { background: #E9E8E3; color: #202322; }
+.services .eyebrow, .ceilings .eyebrow { color: #454647; }
+.services .eyebrow-line, .ceilings .eyebrow-line { background: #C65D32; }
+.service-list { border-top-color: #B8B9B4; }
+.service-row { border-bottom-color: #B8B9B4; }
+.service-meta { color: #646667; }
+.service-tag { letter-spacing: .15em; }
+.service-title h3 { font-family: "Montserrat", Arial, sans-serif; font-weight: 700; }
+.service-title p { color: #646667; }
+.service-photo { background: #D7D7D2; }
+.photo-arrow { background: #202322; color: #E9E8E3; transition: background .25s ease; }
+.service-row:hover .photo-arrow { background: #C65D32; color: #fff; }
+.ceilings { background: #D7D7D2; color: #202322; }
+.ceiling-tabs a {
+  border-color: #20232255;
+  color: #202322;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  transition: color .25s ease, background .25s ease, border-color .25s ease;
+}
+.ceiling-tabs a:hover, .ceiling-tabs a:focus-visible {
+  border-color: #202322;
+  background: #202322;
+  color: #E9E8E3;
+}
+.ceiling-card {
+  background: #E9E8E3;
+  border-color: #B8B9B4;
+}
+.ceiling-number { color: #C65D32; }
+.ceiling-card h3 { font-family: "Montserrat", Arial, sans-serif; font-weight: 700; }
+.ceiling-card p { color: #646667; }
+.ceiling-card > a { border-top-color: #B8B9B4; font-weight: 600; }
+.ceiling-card > a span { color: #C65D32; }
+
+/* Social SVGs copied from the Naumovich header: same stroke, silhouette and scale. */
+.menu-social-icons a,
+.contact-social-icons a,
+.footer-social-icons a.footer-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  transition: color .25s ease, background-color .25s ease, border-color .25s ease, transform .25s ease, opacity .25s ease;
+}
+.menu-social-icons a svg,
+.contact-social-icons a svg,
+.footer-social-icons a.footer-social svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  max-width: none;
+}
+.menu-social-icons a,
+.contact-social-icons a {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #ffffff75;
+  border-radius: 50%;
+}
+.menu-social-icons a:hover,
+.contact-social-icons a:hover,
+.footer-social-icons a.footer-social:hover {
+  background: #C65D32;
+  border-color: #C65D32;
+  color: #fff;
+  transform: translateY(-2px);
+}
+.footer-social-icons a.footer-social {
+  width: 38px;
+  height: 38px;
+  border-color: #ffffff55;
+  border-radius: 50%;
+  color: #E9E8E3;
+}
+.contact-social-icons a { border-color: #ffffff9c; }
+.menu-socials { gap: 10px; }
+
+/* Preserve dark photography-led hero/contact and graphite footer, as on Naumovich. */
+.hero { color: #E9E8E3; }
+.hero h1 { font-family: "Montserrat", Arial, sans-serif; font-weight: 800; letter-spacing: -.055em; }
+.hero h1 em, .intro h2 em, .section-heading h2 em, .contact-content h2 em { color: #C65D32; }
+.eyebrow-line { background: #C65D32; }
+.hero-desc, .contact-content > p:not(.eyebrow) { color: #D2D3D0; }
+.contact-section { color: #E9E8E3; }
+.contact-content .eyebrow { color: #E9E8E3; }
+.contact-phone span { color: #C65D32; }
+.footer, .footer-premium { background: #202322; color: #E9E8E3; }
+.footer-kicker, .footer-experience, .footer-bottom { color: #B8B9B4; }
+.footer-navigation a, .footer-socials a { color: #E9E8E3; }
+.footer-navigation a:hover, .footer-socials a:hover, .footer-phone:hover { color: #C65D32; }
+.footer-bottom { border-top-color: #ffffff2e; }
+.menu-panel { background: rgba(32,35,34,.96); color: #E9E8E3; }
+.menu-navigation a:hover, .menu-phone:hover, .menu-socials a:hover { color: #C65D32; }
+.menu-contact-button { width: 100%; margin-top: 18px; }
+@media (max-width: 900px) {
+  .menu-panel { padding-top: 20px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

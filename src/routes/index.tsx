@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Camera, Send, PhoneCall } from "lucide-react";
 export const Route = createFileRoute("/")({ component: Index });
 const ceilingTypes = [
   { id: "matte", n: "01", title: "Матовые", text: "Спокойная поверхность с видом ровного окрашенного потолка.", image: "/assets/ceilings/matte.jpg" },
@@ -18,6 +17,17 @@ const services = [
   { n: "07", title: "Тёплые полы и электрика", text: "Электромонтажные работы и решения для комфортного микроклимата.", image: "/assets/painting-work.jpg" },
   { n: "08", title: "Подбор и доставка материалов", text: "Помощь с выбором материалов под задачи помещения и организацией доставки.", image: "/assets/bathroom.jpg" },
 ];
+
+function InstagramIcon({ size = 21 }: { size?: number }) {
+  return <svg viewBox="0 0 24 24" width={size} height={size} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>;
+}
+function TelegramIcon({ size = 21 }: { size?: number }) {
+  return <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden="true"><path d="M21.4 4.6 18.2 20c-.2 1.1-.8 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.9 8.9-8c.4-.4-.1-.6-.6-.2L6.1 13.8l-4.7-1.5c-1-.3-1-1 .2-1.5L20 3.4c.9-.3 1.7.2 1.4 1.2Z"/></svg>;
+}
+function ViberIcon({ size = 21 }: { size?: number }) {
+  return <svg viewBox="0 0 24 24" width={size} height={size} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 3.5C2.8 4.5 2.7 7.1 3.4 9.4c1.6 5.1 6.1 9.6 11.2 11.2 2.3.7 4.9.6 5.9-1.6l.5-1.1-5-2.4-1.6 2-1.4-.6a13 13 0 0 1-5.5-5.5l-.6-1.4 2-1.6-2.4-5L5 3.5Z"/><path d="M13 5a6 6 0 0 1 6 6M13 8a3 3 0 0 1 3 3"/></svg>;
+}
+
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -93,9 +103,9 @@ function Index() {
           <section className="menu-contact-block" aria-label="Социальные сети">
             <p className="menu-caption">СВЯЗАТЬСЯ С НАМИ</p>
             <div className="menu-socials menu-social-icons">
-              <a href="https://www.instagram.com/titanartmaster/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><Camera size={21} strokeWidth={1.7}/></a>
-              <a href="https://t.me/+375333075077" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram"><Send size={21} strokeWidth={1.7}/></a>
-              <a href="viber://chat?number=%2B375333075077" aria-label="Viber / телефон" title="Viber / телефон"><PhoneCall size={21} strokeWidth={1.7}/></a>
+              <a href="https://www.instagram.com/titanartmaster/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><InstagramIcon size={21}/></a>
+              <a href="https://t.me/+375333075077" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram"><TelegramIcon size={21}/></a>
+              <a href="viber://chat?number=%2B375333075077" aria-label="Viber / телефон" title="Viber / телефон"><ViberIcon size={21}/></a>
             </div>
           </section>
           <a className="menu-contact-button" href="/contacts" onClick={closeMenu}>Связаться с нами <span>→</span></a>
@@ -130,7 +140,7 @@ function Index() {
         </div>
         <div className="footer-social-area">
           <span className="footer-kicker">МЫ НА СВЯЗИ</span>
-          <div className="footer-socials footer-social-icons" aria-label="Социальные сети"><a className="footer-social" href="https://www.instagram.com/titanartmaster/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><Camera size={20}/></a><a className="footer-social" href="https://t.me/+375333075077" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram"><Send size={20}/></a><a className="footer-social" href="viber://chat?number=%2B375333075077" aria-label="Viber / телефон" title="Viber / телефон"><PhoneCall size={20}/></a></div>
+          <div className="footer-socials footer-social-icons" aria-label="Социальные сети"><a className="footer-social" href="https://www.instagram.com/titanartmaster/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><InstagramIcon size={20}/></a><a className="footer-social" href="https://t.me/+375333075077" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram"><TelegramIcon size={20}/></a><a className="footer-social" href="viber://chat?number=%2B375333075077" aria-label="Viber / телефон" title="Viber / телефон"><ViberIcon size={20}/></a></div>
         </div>
       </div>
       <div className="footer-bottom"><span>© {new Date().getFullYear()} TITANARTMASTER.PRO</span><span>Ремонт квартир · Все виды отделочных работ</span><a href="/legal">Правовая информация</a><a href="#home" className="back-top">НАВЕРХ <span aria-hidden="true">↑</span></a></div>
