@@ -907,3 +907,7 @@ h1, h2, h3, h4, .brand-copy, .service-title h3 {
   .menu-contact-block { padding-top: 12px; }
   .menu-contact-button { margin-top: 14px; }
 }
+
+.footer-social-icons { display:flex; align-items:center; gap:10px; }
+.footer-social-icons a.footer-social { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border:1px solid #ffffff55; border-radius:50%; color:#E9E8E3; transition:background .2s,color .2s,border-color .2s,transform .2s; }
+.footer-social-icons a.footer-social:hover { background:#C65D32; border-color:#C65D32; color:#fff; transform:translateY(-2px); }
