@@ -1466,3 +1466,5 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Deployment check: keep the transparent-to-light header transition readable. */
+
+/* Cloudflare redeploy check: header contrast and menu spacing. */
