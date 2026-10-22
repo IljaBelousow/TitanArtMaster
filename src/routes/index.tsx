@@ -171,7 +171,7 @@ function Index() {
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} TITANARTMASTER.PRO</span>
         <span>Ремонт квартир · Все виды отделочных работ</span>
-        <a href="/legal">Правовая информация</a>
+        <a href="/privacy">Политика конфиденциальности</a>
         <a href="#home" className="back-top">НАВЕРХ <span aria-hidden="true">↑</span></a>
       </div>
     </footer>
