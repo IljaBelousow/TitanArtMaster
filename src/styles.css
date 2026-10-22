@@ -1468,3 +1468,34 @@ h1, h2, h3, h4, h5, h6 {
 /* Deployment check: keep the transparent-to-light header transition readable. */
 
 /* Cloudflare redeploy check: header contrast and menu spacing. */
+
+
+/* Header icon contrast follows the transparent-to-light scroll state. */
+.topbar .header-socials.menu-social-icons a,
+.topbar .header-socials.menu-social-icons a svg,
+.topbar .menu-toggle,
+.topbar .menu-toggle span {
+  transition: color .25s ease, background-color .25s ease, fill .25s ease, stroke .25s ease;
+}
+.topbar .header-socials.menu-social-icons a { color: #202322 !important; }
+.topbar .header-socials.menu-social-icons a svg { color: currentColor !important; }
+.topbar .header-socials.menu-social-icons a svg path,
+.topbar .header-socials.menu-social-icons a svg circle,
+.topbar .header-socials.menu-social-icons a svg line,
+.topbar .header-socials.menu-social-icons a svg polyline {
+  stroke: currentColor;
+}
+.topbar .header-socials.menu-social-icons a svg path { fill: currentColor; }
+.topbar.topbar-scrolled .header-socials.menu-social-icons a { color: #202322 !important; }
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .header-socials.menu-social-icons a,
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .header-socials.menu-social-icons a svg {
+  color: #fff !important;
+}
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .header-socials.menu-social-icons a svg path,
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .header-socials.menu-social-icons a svg circle,
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .header-socials.menu-social-icons a svg line,
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .header-socials.menu-social-icons a svg polyline {
+  stroke: currentColor;
+}
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .header-socials.menu-social-icons a svg path { fill: currentColor; }
+
