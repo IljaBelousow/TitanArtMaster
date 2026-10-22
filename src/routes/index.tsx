@@ -74,18 +74,19 @@ function Index() {
         <span className="brand-copy">TITAN<span>ARTMASTER.PRO</span></span>
       </a>
       <nav className="desktop-nav" aria-label="Основная навигация">
-        <a href="#home" onClick={closeMenu}>Главная</a>
-        <a href="#services" onClick={closeMenu}>Виды работ</a>
+        <a href="/" onClick={closeMenu}>Главная</a>
+        <a href="/about" onClick={closeMenu}>О компании</a>
+        <a href="/services" onClick={closeMenu}>Виды работ</a>
         <div className="nav-dropdown">
           <button className="nav-dropdown-trigger" type="button" aria-expanded={ceilingsMenuOpen} onClick={() => setCeilingsMenuOpen(!ceilingsMenuOpen)}>Натяжные потолки <span aria-hidden="true">⌄</span></button>
           <div className={ceilingsMenuOpen ? "ceiling-dropdown ceiling-dropdown-open" : "ceiling-dropdown"}>
             {ceilingTypes.map(item => <a key={item.id} href={"#ceiling-" + item.id} onClick={closeMenu}>{item.title}</a>)}
-            <a className="dropdown-all" href="#ceilings" onClick={closeMenu}>Все варианты потолков ↗</a>
+            <a className="dropdown-all" href="/ceilings" onClick={closeMenu}>Все варианты потолков ↗</a>
           </div>
         </div>
         <a href="#advantages" onClick={closeMenu}>Преимущества</a>
         <a href="#process" onClick={closeMenu}>Этапы работы</a>
-        <a href="#contacts" onClick={closeMenu}>Контакты</a>
+        <a href="/contacts" onClick={closeMenu}>Контакты</a>
       </nav>
       <div className="header-actions">
         <a className="header-phone" href="tel:+375333075077">+375 (33) 307-50-77</a>
@@ -97,13 +98,14 @@ function Index() {
         <button className="menu-backdrop" type="button" aria-label="Закрыть меню" onClick={closeMenu}/>
         <aside className="menu-panel" onClick={(event) => event.stopPropagation()} aria-label="Меню сайта">
           <nav className="menu-navigation" aria-label="Разделы сайта">
-            <a href="#home" onClick={closeMenu}>Главная <span>→</span></a>
-            <a href="#services" onClick={closeMenu}>Виды работ <span>→</span></a>
-            <a href="#ceilings" onClick={closeMenu}>Натяжные потолки <span>→</span></a>
+            <a href="/" onClick={closeMenu}>Главная <span>→</span></a>
+            <a href="/about" onClick={closeMenu}>О компании <span>→</span></a>
+            <a href="/services" onClick={closeMenu}>Виды работ <span>→</span></a>
+            <a href="/ceilings" onClick={closeMenu}>Натяжные потолки <span>→</span></a>
             <a href="#advantages" onClick={closeMenu}>Преимущества <span>→</span></a>
             <a href="#process" onClick={closeMenu}>Этапы работы <span>→</span></a>
             <a href="#faq" onClick={closeMenu}>Частые вопросы <span>→</span></a>
-            <a href="#contacts" onClick={closeMenu}>Контакты <span>→</span></a>
+            <a href="/contacts" onClick={closeMenu}>Контакты <span>→</span></a>
           </nav>
           <section className="menu-contact-block" aria-label="Телефон">
             <a className="menu-phone" href="tel:+375333075077">+375 (33) 307-50-77</a>
@@ -116,7 +118,7 @@ function Index() {
               <a href="viber://chat?number=%2B375333075077">Viber ↗</a>
             </div>
           </section>
-          <a className="menu-contact-button" href="#contacts" onClick={closeMenu}>Связаться с нами <span>→</span></a>
+          <a className="menu-contact-button" href="/contacts" onClick={closeMenu}>Связаться с нами <span>→</span></a>
         </aside>
       </div>}
     </header>
@@ -141,10 +143,10 @@ function Index() {
         </div>
         <nav className="footer-navigation" aria-label="Навигация в подвале">
           <span className="footer-kicker">РАЗДЕЛЫ САЙТА</span>
-          <a href="#services">Виды работ</a>
-          <a href="#advantages">Наши преимущества</a>
-          <a href="#process">Этапы работы</a>
-          <a href="#faq">Частые вопросы</a>
+          <a href="/about">О компании</a>
+          <a href="/services">Виды работ</a>
+          <a href="/ceilings">Натяжные потолки</a>
+          <a href="/contacts">Контакты</a>
         </nav>
         <div className="footer-contact">
           <span className="footer-kicker">ОБСУДИТЬ ПРОЕКТ</span>
