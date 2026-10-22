@@ -62,10 +62,11 @@ function Index() {
 
   return <main className="site-shell">
     <header className={scrolled ? "topbar topbar-scrolled" : "topbar"}>
-      <a className="brand" href="#home" onClick={closeMenu}>
+      <a className="brand" href="#home" onClick={closeMenu} aria-label="TitanArtMaster — главная">
         <span className="brand-mark">T<span>A</span></span>
         <span className="brand-copy">TITAN<span>ARTMASTER.PRO</span></span>
       </a>
+
       <nav className="desktop-nav" aria-label="Основная навигация">
         <a href="/" onClick={closeMenu}>Главная</a>
         <a href="/about" onClick={closeMenu}>О компании</a>
@@ -80,12 +81,20 @@ function Index() {
         <a href="#advantages" onClick={closeMenu}>Преимущества</a>
         <a href="/contacts" onClick={closeMenu}>Контакты</a>
       </nav>
+
       <div className="header-actions">
+        <div className="header-socials menu-social-icons" aria-label="Связаться с нами">
+          <a href="https://www.instagram.com/titanartmaster/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><InstagramIcon size={21}/></a>
+          <a href="https://t.me/+375333075077" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram"><TelegramIcon size={21}/></a>
+          <a href="viber://chat?number=%2B375333075077" aria-label="Viber" title="Viber"><ViberIcon size={21}/></a>
+          <a href="tel:+375333075077" aria-label="Позвонить" title="Позвонить"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 16.5v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 10.2 18a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.9 3.2 2 2 0 0 1 3.9 1h3a2 2 0 0 1 2 1.7l.5 2.8a2 2 0 0 1-.6 1.9L7 9.2a16 16 0 0 0 6 6l1.8-1.8a2 2 0 0 1 1.9-.6l2.8.5a2 2 0 0 1 1.5 3.2Z"/></svg></a>
+        </div>
         <a className="header-phone" href="tel:+375333075077">+375 (33) 307-50-77</a>
         <button className={menuOpen ? "menu-toggle menu-toggle-open" : "menu-toggle"} type="button" aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
           <span/><span/><span/>
         </button>
       </div>
+
       {menuOpen && <div className="menu-overlay" onClick={closeMenu}>
         <button className="menu-backdrop" type="button" aria-label="Закрыть меню" onClick={closeMenu}/>
         <aside className="menu-panel" onClick={(event) => event.stopPropagation()} aria-label="Меню сайта">
@@ -105,7 +114,8 @@ function Index() {
             <div className="menu-socials menu-social-icons">
               <a href="https://www.instagram.com/titanartmaster/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><InstagramIcon size={21}/></a>
               <a href="https://t.me/+375333075077" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram"><TelegramIcon size={21}/></a>
-              <a href="viber://chat?number=%2B375333075077" aria-label="Viber / телефон" title="Viber / телефон"><ViberIcon size={21}/></a>
+              <a href="viber://chat?number=%2B375333075077" aria-label="Viber" title="Viber"><ViberIcon size={21}/></a>
+              <a href="tel:+375333075077" aria-label="Позвонить" title="Позвонить"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 16.5v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 10.2 18a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.9 3.2 2 2 0 0 1 3.9 1h3a2 2 0 0 1 2 1.7l.5 2.8a2 2 0 0 1-.6 1.9L7 9.2a16 16 0 0 0 6 6l1.8-1.8a2 2 0 0 1 1.9-.6l2.8.5a2 2 0 0 1 1.5 3.2Z"/></svg></a>
             </div>
           </section>
           <a className="menu-contact-button" href="/contacts" onClick={closeMenu}>Связаться с нами <span>→</span></a>
@@ -118,32 +128,52 @@ function Index() {
     <section className="ceilings section-pad" id="ceilings"><div className="section-heading"><div><p className="eyebrow"><span className="eyebrow-line"/> ОТДЕЛЬНОЕ НАПРАВЛЕНИЕ</p><h2>Натяжные <em>потолки</em></h2></div><p className="heading-note">Выберите тип потолка,<br/>чтобы посмотреть особенности<br/>и обсудить подходящий вариант.</p></div><div className="ceiling-tabs" aria-label="Виды натяжных потолков">{ceilingTypes.map(item => <a key={item.id} href={"#ceiling-" + item.id}>{item.title}</a>)}</div><div className="ceiling-grid">{ceilingTypes.map(item => <article className="ceiling-card" id={"ceiling-" + item.id} key={item.id}><img className="ceiling-photo" src={item.image} alt={item.title + " — натяжной потолок"} loading="lazy"/><div className="ceiling-photo-overlay"/><div className="ceiling-photo-copy"><span className="ceiling-number">{item.n} / НАТЯЖНЫЕ ПОТОЛКИ</span><h3>{item.title}</h3><p>{item.text}</p><a href="#contacts" aria-label={"Обсудить потолок: " + item.title}>Обсудить вариант <span>↗</span></a></div></article>)}</div></section>
     <section className="contact-section" id="contacts"><div className="contact-image"/><div className="contact-overlay"/><div className="contact-content"><p className="eyebrow"><span className="eyebrow-line"/> ВАШ СЛЕДУЮЩИЙ ШАГ</p><h2>Давайте обсудим<br/><em>ваш ремонт.</em></h2><p>Расскажите, каким вы хотите видеть своё пространство. Поможем разобраться с работами и дальнейшими шагами.</p><a className="contact-phone" href="tel:+375333075077">+375 (33) 307-50-77 <span>↗</span></a><div className="contact-actions"><a className="button-primary contact-button" href="tel:+375333075077">Позвонить <span>↗</span></a><div className="contact-socials contact-social-icons"><a href="https://www.instagram.com/titanartmaster/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><InstagramIcon size={21}/></a><a href="https://t.me/+375333075077" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram"><TelegramIcon size={21}/></a><a href="viber://chat?number=%2B375333075077" aria-label="Viber / телефон" title="Viber / телефон"><ViberIcon size={21}/></a></div></div></div></section>
     <footer className="footer footer-premium">
-      <div className="footer-main">
-        <a className="brand footer-brand" href="#home" aria-label="TitanArtMaster — наверх">
-          <span className="brand-mark">T<span>A</span></span>
-          <span className="brand-copy">TITAN<span>ARTMASTER.PRO</span></span>
-        </a>
-        <div className="footer-intro">
-          <p className="footer-manifesto">Ремонт квартир и отделка<br/>с вниманием к каждой детали.</p>
+      <div className="footer-main naumovich-footer-grid">
+        <div className="footer-brand-column">
+          <a className="brand footer-brand" href="#home" aria-label="TitanArtMaster — наверх">
+            <span className="brand-mark">T<span>A</span></span>
+            <span className="brand-copy">TITAN<span>ARTMASTER.PRO</span></span>
+          </a>
+          <p className="footer-manifesto">Ремонт квартир под ключ<br/>и все виды отделочных работ.</p>
           <span className="footer-experience">20 лет опыта в ремонте</span>
+          <a className="footer-catalog-link" href="/services">Посмотреть услуги <span aria-hidden="true">↗</span></a>
         </div>
-        <nav className="footer-navigation" aria-label="Навигация в подвале">
+
+        <nav className="footer-navigation" aria-label="Разделы сайта">
           <span className="footer-kicker">РАЗДЕЛЫ САЙТА</span>
+          <a href="/">Главная</a>
           <a href="/about">О компании</a>
           <a href="/services">Виды работ</a>
           <a href="/ceilings">Натяжные потолки</a>
           <a href="/contacts">Контакты</a>
         </nav>
+
         <div className="footer-contact">
-          <span className="footer-kicker">ОБСУДИТЬ ПРОЕКТ</span>
+          <span className="footer-kicker">СВЯЗАТЬСЯ С НАМИ</span>
           <a className="footer-phone" href="tel:+375333075077">+375 (33) 307-50-77 <span aria-hidden="true">↗</span></a>
+          <div className="footer-socials footer-social-icons" aria-label="Социальные сети">
+            <a className="footer-social" href="https://www.instagram.com/titanartmaster/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><InstagramIcon size={20}/></a>
+            <a className="footer-social" href="https://t.me/+375333075077" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram"><TelegramIcon size={20}/></a>
+            <a className="footer-social" href="viber://chat?number=%2B375333075077" aria-label="Viber" title="Viber"><ViberIcon size={20}/></a>
+          </div>
+          <a className="footer-contact-button" href="/contacts">Связаться с нами <span aria-hidden="true">→</span></a>
         </div>
-        <div className="footer-social-area">
-          <span className="footer-kicker">МЫ НА СВЯЗИ</span>
-          <div className="footer-socials footer-social-icons" aria-label="Социальные сети"><a className="footer-social" href="https://www.instagram.com/titanartmaster/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><InstagramIcon size={20}/></a><a className="footer-social" href="https://t.me/+375333075077" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram"><TelegramIcon size={20}/></a><a className="footer-social" href="viber://chat?number=%2B375333075077" aria-label="Viber / телефон" title="Viber / телефон"><ViberIcon size={20}/></a></div>
+
+        <div className="footer-services-column">
+          <span className="footer-kicker">НАПРАВЛЕНИЯ РАБОТ</span>
+          <p>Ремонт квартир под ключ</p>
+          <p>Плитка и напольные покрытия</p>
+          <p>Малярные работы</p>
+          <p>Монтаж гипсокартона</p>
+          <p>Натяжные потолки</p>
         </div>
       </div>
-      <div className="footer-bottom"><span>© {new Date().getFullYear()} TITANARTMASTER.PRO</span><span>Ремонт квартир · Все виды отделочных работ</span><a href="/legal">Правовая информация</a><a href="#home" className="back-top">НАВЕРХ <span aria-hidden="true">↑</span></a></div>
+      <div className="footer-bottom">
+        <span>© {new Date().getFullYear()} TITANARTMASTER.PRO</span>
+        <span>Ремонт квартир · Все виды отделочных работ</span>
+        <a href="/legal">Правовая информация</a>
+        <a href="#home" className="back-top">НАВЕРХ <span aria-hidden="true">↑</span></a>
+      </div>
     </footer>
   </main>;
 }
