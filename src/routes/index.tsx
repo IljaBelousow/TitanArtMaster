@@ -130,7 +130,7 @@ function Index() {
         </div>
         <div className="footer-social-area">
           <span className="footer-kicker">МЫ НА СВЯЗИ</span>
-          <div className="footer-socials footer-social-names" aria-label="Социальные сети"><a className="footer-social" href="https://www.instagram.com/titanartmaster/" target="_blank" rel="noopener noreferrer">Instagram</a><a className="footer-social" href="https://t.me/+375333075077" target="_blank" rel="noopener noreferrer">Telegram</a><a className="footer-social" href="viber://chat?number=%2B375333075077">Viber</a></div>
+          <div className="footer-socials footer-social-icons" aria-label="Социальные сети"><a className="footer-social" href="https://www.instagram.com/titanartmaster/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><Instagram size={20}/></a><a className="footer-social" href="https://t.me/+375333075077" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram"><Send size={20}/></a><a className="footer-social" href="viber://chat?number=%2B375333075077" aria-label="Viber / телефон" title="Viber / телефон"><PhoneCall size={20}/></a></div>
         </div>
       </div>
       <div className="footer-bottom"><span>© {new Date().getFullYear()} TITANARTMASTER.PRO</span><span>Ремонт квартир · Все виды отделочных работ</span><a href="/legal">Правовая информация</a><a href="#home" className="back-top">НАВЕРХ <span aria-hidden="true">↑</span></a></div>
