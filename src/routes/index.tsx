@@ -76,7 +76,13 @@ function Index() {
       <nav className="desktop-nav" aria-label="Основная навигация">
         <a href="#home" onClick={closeMenu}>Главная</a>
         <a href="#services" onClick={closeMenu}>Виды работ</a>
-        <a href="#ceilings" onClick={closeMenu}>Натяжные потолки</a>
+        <div className="nav-dropdown">
+          <button className="nav-dropdown-trigger" type="button" aria-expanded={ceilingsMenuOpen} onClick={() => setCeilingsMenuOpen(!ceilingsMenuOpen)}>Натяжные потолки <span aria-hidden="true">⌄</span></button>
+          <div className={ceilingsMenuOpen ? "ceiling-dropdown ceiling-dropdown-open" : "ceiling-dropdown"}>
+            {ceilingTypes.map(item => <a key={item.id} href={"#ceiling-" + item.id} onClick={closeMenu}>{item.title}</a>)}
+            <a className="dropdown-all" href="#ceilings" onClick={closeMenu}>Все варианты потолков ↗</a>
+          </div>
+        </div>
         <a href="#advantages" onClick={closeMenu}>Преимущества</a>
         <a href="#process" onClick={closeMenu}>Этапы работы</a>
         <a href="#contacts" onClick={closeMenu}>Контакты</a>
