@@ -1418,3 +1418,49 @@ h1, h2, h3, h4, h5, h6 {
   .privacy-lead { font-size: 16px; }
   .privacy-section h2 { font-size: 17px; }
 }
+
+
+/* Transparent home header at the top; switch to the established light surface on scroll. */
+.topbar {
+  background: rgba(233,232,227,.97) !important;
+  border-bottom-color: rgba(184,185,180,.8) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.topbar .brand-mark { color: #202322; }
+.topbar .brand-copy, .topbar .brand-copy span { color: #202322; }
+.topbar .desktop-nav a, .topbar .nav-dropdown-trigger,
+.topbar .header-phone, .topbar .menu-toggle { color: #202322; }
+.topbar .menu-toggle span { background: currentColor; }
+.topbar .header-socials.menu-social-icons a { color: #202322 !important; }
+
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) {
+  background: transparent !important;
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .brand-mark,
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .brand-copy,
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .brand-copy span,
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .desktop-nav a,
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .nav-dropdown-trigger,
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .header-phone,
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .menu-toggle {
+  color: #fff !important;
+  text-shadow: 0 1px 10px rgba(0,0,0,.24);
+}
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .brand-mark span { color: #C65D32 !important; }
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .menu-toggle span { background: #fff !important; }
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .header-socials.menu-social-icons a { color: #fff !important; }
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .desktop-nav a:hover,
+.site-shell:has(.hero) .topbar:not(.topbar-scrolled) .nav-dropdown-trigger:hover { color: #C65D32 !important; }
+.topbar-scrolled .brand-mark { color: #202322 !important; }
+.topbar-scrolled .brand-mark span { color: #C65D32 !important; }
+
+/* Keep burger content close to the very top edge, with a small breathing gap. */
+.menu-panel { padding-top: 14px !important; }
+@media (max-width: 700px) {
+  .menu-panel { padding-top: 12px !important; }
+}
