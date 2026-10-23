@@ -1724,3 +1724,63 @@ body { font-size: 16px; }
 @media(prefers-reduced-motion:reduce) {
   .inner-menu-backdrop, .inner-menu-toggle span { animation:none !important; transition:none !important; }
 }
+
+
+/* Fix: keep the shared side menu translucent and make inner-page headers react to scroll. */
+.menu-panel {
+  background: rgba(32, 35, 34, .70) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(125%) !important;
+  backdrop-filter: blur(22px) saturate(125%) !important;
+  border-left: 1px solid rgba(255,255,255,.22) !important;
+}
+.menu-backdrop {
+  background: rgba(0,0,0,.28) !important;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+.topbar {
+  transition: background .28s ease, border-color .28s ease, box-shadow .28s ease, backdrop-filter .28s ease;
+}
+/* At the top of content pages, the header overlays the hero image just like the homepage. */
+.site-shell:has(.inner-hero) .topbar:not(.topbar-scrolled) {
+  background: rgba(24,26,26,.18) !important;
+  border-bottom-color: rgba(255,255,255,.14) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+.site-shell:has(.inner-hero) .topbar:not(.topbar-scrolled) .brand-mark,
+.site-shell:has(.inner-hero) .topbar:not(.topbar-scrolled) .brand-copy,
+.site-shell:has(.inner-hero) .topbar:not(.topbar-scrolled) .brand-copy span,
+.site-shell:has(.inner-hero) .topbar:not(.topbar-scrolled) .desktop-nav a,
+.site-shell:has(.inner-hero) .topbar:not(.topbar-scrolled) .nav-dropdown-trigger,
+.site-shell:has(.inner-hero) .topbar:not(.topbar-scrolled) .header-phone,
+.site-shell:has(.inner-hero) .topbar:not(.topbar-scrolled) .menu-toggle,
+.site-shell:has(.inner-hero) .topbar:not(.topbar-scrolled) .header-socials a {
+  color: #fff !important;
+  text-shadow: 0 1px 10px rgba(0,0,0,.3);
+}
+.site-shell:has(.inner-hero) .topbar:not(.topbar-scrolled) .menu-toggle span {
+  background: #fff !important;
+}
+.site-shell:has(.inner-hero) .topbar.topbar-scrolled {
+  background: rgba(233,232,227,.96) !important;
+  border-bottom-color: rgba(184,185,180,.8) !important;
+  box-shadow: 0 8px 24px rgba(32,35,34,.06) !important;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+.site-shell:has(.inner-hero) .topbar.topbar-scrolled .brand-mark,
+.site-shell:has(.inner-hero) .topbar.topbar-scrolled .brand-copy,
+.site-shell:has(.inner-hero) .topbar.topbar-scrolled .brand-copy span,
+.site-shell:has(.inner-hero) .topbar.topbar-scrolled .desktop-nav a,
+.site-shell:has(.inner-hero) .topbar.topbar-scrolled .nav-dropdown-trigger,
+.site-shell:has(.inner-hero) .topbar.topbar-scrolled .header-phone,
+.site-shell:has(.inner-hero) .topbar.topbar-scrolled .menu-toggle,
+.site-shell:has(.inner-hero) .topbar.topbar-scrolled .header-socials a {
+  color: #202322 !important;
+  text-shadow: none;
+}
+.site-shell:has(.inner-hero) .topbar.topbar-scrolled .menu-toggle span {
+  background: #202322 !important;
+}
