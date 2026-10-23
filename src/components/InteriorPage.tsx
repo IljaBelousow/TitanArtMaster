@@ -10,6 +10,7 @@ type InteriorPageProps = {
   closingTitle?: string;
   closingText?: string;
   children?: ReactNode;
+  minimal?: boolean;
 };
 
 const nav = [
@@ -20,7 +21,7 @@ const nav = [
   { href: "/contacts", label: "Контакты" },
 ];
 
-export function InteriorPage({ eyebrow, title, description, intro, cards = [], closingTitle = "Обсудим ваш ремонт?", closingText = "Расскажите о задаче — поможем определить подходящий объём работ и следующие шаги.", children }: InteriorPageProps) {
+export function InteriorPage({ eyebrow, title, description, intro, cards = [], closingTitle = "Обсудим ваш ремонт?", closingText = "Расскажите о задаче — поможем определить подходящий объём работ и следующие шаги.", children, minimal = false }: InteriorPageProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <main className="site-shell inner-page">
@@ -46,15 +47,15 @@ export function InteriorPage({ eyebrow, title, description, intro, cards = [], c
           <div className="inner-breadcrumb"><a href="/">Главная</a><span>/</span><span>{eyebrow}</span></div>
           <p className="eyebrow"><span className="eyebrow-line" /> {eyebrow}</p>
           <h1>{title}</h1>
-          <p className="inner-lead">{description}</p>
-          <div className="hero-actions">
+          {description && <p className="inner-lead">{description}</p>}
+          {!minimal && <div className="hero-actions">
             <a className="button-primary" href="tel:+375333075077">Связаться с нами <span>↗</span></a>
             <a className="button-text" href="#page-content">Подробнее <span>↓</span></a>
-          </div>
+          </div>}
         </div>
       </section>
 
-      <section className="inner-content section-pad" id="page-content">
+      {!minimal && <section className="inner-content section-pad" id="page-content">
         {intro && <div className="inner-intro"><p className="eyebrow"><span className="eyebrow-line" /> TITAN ART MASTER</p><p>{intro}</p></div>}
         {children}
         {cards.length > 0 && <div className="inner-card-grid">
@@ -63,12 +64,12 @@ export function InteriorPage({ eyebrow, title, description, intro, cards = [], c
             <div className="inner-card-body"><span className="inner-card-number">{card.number}</span><h2>{card.title}</h2><p>{card.text}</p>{card.href && <a href={card.href}>Подробнее <span>↗</span></a>}</div>
           </article>)}
         </div>}
-      </section>
+      </section>}
 
-      <section className="inner-cta">
+      {!minimal && <section className="inner-cta">
         <div><p className="eyebrow"><span className="eyebrow-line" /> СЛЕДУЮЩИЙ ШАГ</p><h2>{closingTitle}</h2><p>{closingText}</p></div>
         <a className="button-primary" href="tel:+375333075077">+375 (33) 307-50-77 <span>↗</span></a>
-      </section>
+      </section>}
 
       <footer className="inner-footer">
         <a className="brand inner-brand" href="/"><span className="brand-mark">T<span>A</span></span><span className="brand-copy">TITAN<span>ARTMASTER.PRO</span></span></a>
