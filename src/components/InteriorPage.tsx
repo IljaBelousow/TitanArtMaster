@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 
 type PageCard = { number: string; title: string; text: string; image?: string; href?: string };
 type InteriorPageProps = {
@@ -23,7 +23,7 @@ const nav = [
 export function InteriorPage({ eyebrow, title, description, intro, cards = [], closingTitle = "Обсудим ваш ремонт?", closingText = "Расскажите о задаче — поможем определить подходящий объём работ и следующие шаги.", children }: InteriorPageProps) {
   return (
     <main className="site-shell inner-page">
-      <header className="inner-topbar">
+      <header className={`inner-topbar${menuOpen ? " inner-menu-open" : ""}`}>
         <a className="brand inner-brand" href="/" aria-label="TitanArtMaster — главная">
           <span className="brand-mark">T<span>A</span></span>
           <span className="brand-copy">TITAN<span>ARTMASTER.PRO</span></span>
