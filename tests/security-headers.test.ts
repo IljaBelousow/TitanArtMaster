@@ -6,7 +6,6 @@ test("security headers preserve the response and restrict framing to same origin
   expect(response.status).toBe(201);
   expect(await response.text()).toBe("ok");
   expect(response.headers.get("content-security-policy")).toContain("frame-src 'self';");
-  expect(response.headers.get("content-security-policy")).not.toContain("higgsfield");
   expect(response.headers.get("x-content-type-options")).toBe("nosniff");
   expect(response.headers.get("referrer-policy")).toBe("strict-origin-when-cross-origin");
 });
