@@ -1,9 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteFooter, SiteHeader } from "../components/InteriorPage";
 
 export const Route = createFileRoute("/privacy")({ component: PrivacyPage });
 
 function PrivacyPage() {
   return (
+    <>
+    <SiteHeader />
     <main className="privacy-page">
       <div className="privacy-content">
         <p className="privacy-eyebrow">TITAN ART MASTER · ИНФОРМАЦИЯ</p>
@@ -33,5 +36,7 @@ function PrivacyPage() {
         <a className="privacy-back" href="/">← Вернуться на главную</a>
       </div>
     </main>
+    <SiteFooter />
+    </>
   );
 }
