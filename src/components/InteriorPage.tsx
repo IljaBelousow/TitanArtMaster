@@ -102,7 +102,7 @@ function SiteHeader() {
         </div>
         <a className="header-phone" href="tel:+375333075077">+375 (33) 307-50-77</a>
         <button className={menuOpen ? "menu-toggle menu-toggle-open" : "menu-toggle"} type="button" aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"} aria-expanded={menuOpen} onClick={() => setMenuOpen(open => !open)}>
-          <i/><i/><i/>
+          <span/><span/><span/>
         </button>
       </div>
       {menuOpen && <div className="menu-overlay" onClick={closeMenu}>
