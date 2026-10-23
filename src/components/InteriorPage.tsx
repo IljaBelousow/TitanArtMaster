@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode, type MouseEvent } from "react";
 
 type PageCard = { number: string; title: string; text: string; image?: string; href?: string };
 type InteriorPageProps = {
@@ -27,6 +27,17 @@ const ceilingTypes = [
   { id: "satin", title: "Сатиновые" },
   { id: "fabric", title: "Тканевые" },
 ];
+
+function handleSamePageTop(event: MouseEvent<HTMLAnchorElement>, href: string, closeMenu: () => void) {
+  const destination = new URL(href, window.location.origin);
+  if (destination.pathname === window.location.pathname && !destination.hash) {
+    event.preventDefault();
+    closeMenu();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    closeMenu();
+  }
+}
 
 function InstagramIcon({ size = 21 }: { size?: number }) {
   return <svg viewBox="0 0 24 24" width={size} height={size} fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>;
@@ -78,12 +89,12 @@ export function SiteHeader() {
         <span className="brand-copy">TITAN<span>ARTMASTER.PRO</span></span>
       </a>
       <nav className="desktop-nav" aria-label="Основная навигация">
-        <a href="/" onClick={closeMenu}>Главная</a>
-        <a href="/about" onClick={closeMenu}>О компании</a>
-        <a href="/services" onClick={closeMenu}>Виды работ</a>
-        <a href="/ceilings" onClick={closeMenu}>Натяжные потолки</a>
+        <a href="/" onClick={event => handleSamePageTop(event, "/", closeMenu)}>Главная</a>
+        <a href="/about" onClick={event => handleSamePageTop(event, "/about", closeMenu)}>О компании</a>
+        <a href="/services" onClick={event => handleSamePageTop(event, "/services", closeMenu)}>Виды работ</a>
+        <a href="/ceilings" onClick={event => handleSamePageTop(event, "/ceilings", closeMenu)}>Натяжные потолки</a>
         <a href="/#advantages" onClick={closeMenu}>Преимущества</a>
-        <a href="/contacts" onClick={closeMenu}>Контакты</a>
+        <a href="/contacts" onClick={event => handleSamePageTop(event, "/contacts", closeMenu)}>Контакты</a>
       </nav>
       <div className="header-actions">
         <div className="header-socials menu-social-icons" aria-label="Связаться с нами">
@@ -101,7 +112,7 @@ export function SiteHeader() {
         <button className="menu-backdrop" type="button" aria-label="Закрыть меню" onClick={closeMenu}/>
         <aside className="menu-panel" onClick={event => event.stopPropagation()} aria-label="Меню сайта">
           <nav className="menu-navigation" aria-label="Разделы сайта">
-            {nav.map(item => <a key={item.href} href={item.href} onClick={closeMenu}>{item.label} <span>→</span></a>)}
+            {nav.map(item => <a key={item.href} href={item.href} onClick={event => handleSamePageTop(event, item.href, closeMenu)}>{item.label} <span>→</span></a>)}
           </nav>
           <section className="menu-contact-block" aria-label="Телефон"><a className="menu-phone" href="tel:+375333075077">+375 (33) 307-50-77</a></section>
           <section className="menu-contact-block" aria-label="Социальные сети">
