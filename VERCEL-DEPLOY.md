@@ -1,14 +1,14 @@
-# TitanArtMaster — deployment notes
+# TitanArtMaster — Cloudflare deployment
 
-This is the source project for TitanArtMaster.
+The production site is deployed to Cloudflare Workers from the `main_v2` branch.
+
+## Build and deploy
+1. In Cloudflare, open the `titanartmaster` Worker and confirm the connected repository is `IljaBelousow/TitanArtMaster`, branch `main_v2`.
+2. Install dependencies with `bun install --frozen-lockfile`.
+3. Build with `bun run build`.
+4. Deploy with `npx wrangler deploy`.
+5. After deployment, verify the home page and each route: `/about`, `/services`, `/ceilings`, `/contacts`, `/legal`, and `/privacy`.
+6. Check the responsive navigation on desktop and mobile, and verify that local images and the phone link work.
 
 ## Important
-The current Vite build is tailored to Higgsfield's Cloudflare Workers runtime (`vite.config.ts` sets the SSR target to `webworker`, and `wrangler.jsonc` describes Cloudflare assets). It is **not yet a drop-in Vercel deployment**. Do not simply import and deploy unchanged; adapt the server build for Vercel's runtime first, then test the deployed URL in an incognito window.
-
-## Vercel setup after adapter/configuration is completed
-1. Upload this project to a Git repository you own (GitHub is easiest).
-2. In Vercel, choose **Add New → Project** and import that repository.
-3. Set the Root Directory to `app` (include the `packages/` workspace folder).
-4. Use the package manager indicated by `bun.lock`; configure the framework/build output according to the Vercel-compatible TanStack Start adapter.
-5. Deploy, then test the `*.vercel.app` URL in a private/incognito browser window before sharing it.
-6. Add `TitanArtMaster.pro` in Vercel project settings and follow the DNS records Vercel provides. Do not guess DNS values.
+Do not treat a GitHub commit or a successful build as proof that production was deployed. Confirm that Cloudflare reports a successful deployment for the latest `main_v2` commit.
