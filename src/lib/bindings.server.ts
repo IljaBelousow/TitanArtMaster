@@ -22,7 +22,6 @@ type AppEnv = {
   // the manifest. Reach an instance with env.CONTAINER.getByName(id), then
   // .fetch(). See skills/containers.md.
   CONTAINER?: DurableObjectNamespace;
-  HF_ENV?: string;
   APP_SLUG?: string;
 };
 
