@@ -41,7 +41,7 @@ function PhoneIcon() {
   return <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 16.5v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 10.2 18a19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.9 3.2 2 2 0 0 1 3.9 1h3a2 2 0 0 1 2 1.7l.5 2.8a2 2 0 0 1-.6 1.9L7 9.2a16 16 0 0 0 6 6l1.8-1.8a2 2 0 0 1 1.9-.6l2.8.5a2 2 0 0 1 1.5 3.2Z"/></svg>;
 }
 
-function SiteHeader() {
+export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [ceilingsMenuOpen, setCeilingsMenuOpen] = useState(false);
@@ -128,7 +128,7 @@ function SiteHeader() {
   );
 }
 
-function SiteFooter() {
+export function SiteFooter() {
   return (
     <footer className="footer footer-premium">
       <div className="footer-main site-footer-grid">
