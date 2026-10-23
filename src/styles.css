@@ -1784,3 +1784,28 @@ body { font-size: 16px; }
 .site-shell:has(.inner-hero) .topbar.topbar-scrolled .menu-toggle span {
   background: #202322 !important;
 }
+
+
+/* Make burger menus more opaque while retaining a subtle glass effect. */
+.menu-panel {
+  background: rgba(27, 29, 29, .90) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(115%) !important;
+  backdrop-filter: blur(18px) saturate(115%) !important;
+}
+.menu-backdrop {
+  background: rgba(0, 0, 0, .38) !important;
+}
+@media (min-width: 901px) {
+  .inner-menu-open .inner-nav {
+    background: rgba(21, 23, 25, .92) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    backdrop-filter: blur(18px) !important;
+  }
+}
+@media (max-width: 1100px) {
+  .inner-nav {
+    background: rgba(21, 23, 25, .92) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    backdrop-filter: blur(18px) !important;
+  }
+}
