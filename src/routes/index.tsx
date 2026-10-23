@@ -32,6 +32,16 @@ function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const closeMenu = () => setMenuOpen(false);
+  const handleNavigation = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const destination = new URL(href, window.location.origin);
+    if (destination.pathname === window.location.pathname && !destination.hash) {
+      event.preventDefault();
+      closeMenu();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      closeMenu();
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 24);
@@ -66,12 +76,12 @@ function Index() {
       </a>
 
       <nav className="desktop-nav" aria-label="Основная навигация">
-        <a href="/" onClick={closeMenu}>Главная</a>
-        <a href="/about" onClick={closeMenu}>О компании</a>
-        <a href="/services" onClick={closeMenu}>Виды работ</a>
-        <a href="/ceilings" onClick={closeMenu}>Натяжные потолки</a>
+        <a href="/" onClick={event => handleNavigation(event, "/")}>Главная</a>
+        <a href="/about" onClick={event => handleNavigation(event, "/about")}>О компании</a>
+        <a href="/services" onClick={event => handleNavigation(event, "/services")}>Виды работ</a>
+        <a href="/ceilings" onClick={event => handleNavigation(event, "/ceilings")}>Натяжные потолки</a>
         <a href="#advantages" onClick={closeMenu}>Преимущества</a>
-        <a href="/contacts" onClick={closeMenu}>Контакты</a>
+        <a href="/contacts" onClick={event => handleNavigation(event, "/contacts")}>Контакты</a>
       </nav>
 
       <div className="header-actions">
@@ -91,12 +101,12 @@ function Index() {
         <button className="menu-backdrop" type="button" aria-label="Закрыть меню" onClick={closeMenu}/>
         <aside className="menu-panel" onClick={(event) => event.stopPropagation()} aria-label="Меню сайта">
           <nav className="menu-navigation" aria-label="Разделы сайта">
-            <a href="/" onClick={closeMenu}>Главная <span>→</span></a>
-            <a href="/about" onClick={closeMenu}>О компании <span>→</span></a>
-            <a href="/services" onClick={closeMenu}>Виды работ <span>→</span></a>
-            <a href="/ceilings" onClick={closeMenu}>Натяжные потолки <span>→</span></a>
+            <a href="/" onClick={event => handleNavigation(event, "/")}>Главная <span>→</span></a>
+            <a href="/about" onClick={event => handleNavigation(event, "/about")}>О компании <span>→</span></a>
+            <a href="/services" onClick={event => handleNavigation(event, "/services")}>Виды работ <span>→</span></a>
+            <a href="/ceilings" onClick={event => handleNavigation(event, "/ceilings")}>Натяжные потолки <span>→</span></a>
             <a href="#advantages" onClick={closeMenu}>Преимущества <span>→</span></a>
-            <a href="/contacts" onClick={closeMenu}>Контакты <span>→</span></a>
+            <a href="/contacts" onClick={event => handleNavigation(event, "/contacts")}>Контакты <span>→</span></a>
           </nav>
           <section className="menu-contact-block" aria-label="Телефон">
             <a className="menu-phone" href="tel:+375333075077">+375 (33) 307-50-77</a>
