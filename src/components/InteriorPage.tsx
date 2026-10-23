@@ -21,6 +21,7 @@ const nav = [
 ];
 
 export function InteriorPage({ eyebrow, title, description, intro, cards = [], closingTitle = "Обсудим ваш ремонт?", closingText = "Расскажите о задаче — поможем определить подходящий объём работ и следующие шаги.", children }: InteriorPageProps) {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <main className="site-shell inner-page">
       <header className={`inner-topbar${menuOpen ? " inner-menu-open" : ""}`}>
@@ -29,9 +30,13 @@ export function InteriorPage({ eyebrow, title, description, intro, cards = [], c
           <span className="brand-copy">TITAN<span>ARTMASTER.PRO</span></span>
         </a>
         <nav className="inner-nav" aria-label="Основная навигация">
-          {nav.map(item => <a key={item.href} href={item.href}>{item.label}</a>)}
+          {nav.map(item => <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>{item.label}</a>)}
+          <a className="inner-mobile-phone" href="tel:+375333075077">+375 (33) 307-50-77</a>
         </nav>
         <a className="inner-phone" href="tel:+375333075077">+375 (33) 307-50-77</a>
+        <button className="inner-menu-toggle" type="button" aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"} aria-expanded={menuOpen} onClick={() => setMenuOpen(open => !open)}>
+          <span /><span />
+        </button>
       </header>
 
       <section className="inner-hero">
