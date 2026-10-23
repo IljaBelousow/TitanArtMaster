@@ -1809,3 +1809,30 @@ body { font-size: 16px; }
     backdrop-filter: blur(18px) !important;
   }
 }
+
+
+/* Hero contact CTA: white outline and white label consistently on every page. */
+.site-shell .hero .hero-actions .button-primary,
+.site-shell .inner-hero .hero-actions .button-primary {
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.96) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,.28);
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+.site-shell .hero .hero-actions .button-primary span,
+.site-shell .inner-hero .hero-actions .button-primary span {
+  color: #fff !important;
+}
+.site-shell .hero .hero-actions .button-primary:hover,
+.site-shell .inner-hero .hero-actions .button-primary:hover {
+  color: #202322 !important;
+  background: #fff !important;
+  border-color: #fff !important;
+  text-shadow: none;
+}
+.site-shell .hero .hero-actions .button-primary:hover span,
+.site-shell .inner-hero .hero-actions .button-primary:hover span {
+  color: #202322 !important;
+}
