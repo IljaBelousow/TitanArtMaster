@@ -1,42 +1,29 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
-import { landingContentSchema } from "@higgsfield/app-landing";
-import { landingContent } from "../src/landing-content";
 
-describe("scroll-scrub website landing contract", () => {
-  test("uses a safe full-app route preview", () => {
-    expect(() => landingContentSchema.parse(landingContent)).not.toThrow();
-    expect(landingContent.preview).toMatchObject({
-      kind: "route",
-      src: "/app?preview=1",
-      openHref: "/app",
-    });
-    expect(landingContent.steps.items).toHaveLength(3);
-    expect(landingContent.steps.items.map((item) => item.preview.kind)).toEqual([
-      "instruction",
-      "action",
-      "result",
-    ]);
-    expect(landingContent.features.items).toHaveLength(3);
+const read = (path: string) =>
+  readFileSync(new URL(path, import.meta.url), "utf8");
+
+describe("TitanArtMaster site contract", () => {
+  test("all public pages use the expected route declarations", () => {
+    expect(read("../src/routes/index.tsx")).toContain('createFileRoute("/")');
+    for (const route of ["about", "services", "ceilings", "contacts", "legal", "privacy"]) {
+      expect(read(`../src/routes/${route}.tsx`)).toContain(`createFileRoute("/${route}")`);
+    }
   });
 
-  test("keeps public landing and full app routes separate", () => {
-    const landingRoute = readFileSync(new URL("../src/routes/index.tsx", import.meta.url), "utf8");
-    const appRoute = readFileSync(new URL("../src/routes/app.tsx", import.meta.url), "utf8");
-
-    // scroll-scrub's home IS the site: "/" renders the journey instead of the
-    // stock LandingPage. Everything else about the split is unchanged.
-    expect(landingRoute).toContain("ScrollScrub");
-    expect(appRoute).toContain('createFileRoute("/app")');
-    expect(appRoute).toContain("previewMode");
+  test("interior pages share the same shell and mobile navigation", () => {
+    const layout = read("../src/components/InteriorPage.tsx");
+    expect(layout).toContain("inner-topbar");
+    expect(layout).toContain("inner-menu-toggle");
+    expect(layout).toContain("setMenuOpen");
+    expect(layout).toContain("inner-footer");
+    expect(read("../src/routes/privacy.tsx")).toContain("minimal");
+    expect(read("../src/routes/legal.tsx")).toContain("<InteriorPage");
   });
 
-  test("ships the canonical generations workspace recipe", () => {
-    const layout = readFileSync(new URL("../src/layouts/custom.tsx", import.meta.url), "utf8");
-
-    expect(layout).toContain('id: "generations"');
-    expect(layout).toContain('mode="generations"');
-    expect(layout).toContain("<UserGenerations demo");
-    expect(layout).toContain("<PromptBox.Root");
+  test("homepage and interior pages use the site's real business contact", () => {
+    expect(read("../src/routes/index.tsx")).toContain("+375333075077");
+    expect(read("../src/components/InteriorPage.tsx")).toContain("+375333075077");
   });
 });
