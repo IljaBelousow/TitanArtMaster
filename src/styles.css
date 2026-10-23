@@ -425,7 +425,7 @@ html{scroll-padding-top:100px}
 .legal-section{padding:25px 0;border-top:1px solid #ffffff24;scroll-margin-top:24px}.legal-section h2{font-size:22px;letter-spacing:-.025em}.legal-section p{max-width:780px;color:#c5c6c5;line-height:1.8;font-size:15px}.legal-section a{text-decoration:underline;text-underline-offset:3px}.legal-footer{padding-top:25px;border-top:1px solid #ffffff24;color:#9fa1a0;font-size:12px}.legal-footer a{margin-left:15px;color:#f1f2f0}
 
 
-/* Navigation refresh: match the Naumovich header and right-side menu panel. */
+/* Navigation refresh: match the shared site design header and right-side menu panel. */
 @media (min-width: 901px) {
   .topbar { padding-inline: clamp(24px, 5vw, 76px); }
   .topbar > .brand { position: relative; z-index: 102; }
@@ -482,7 +482,7 @@ html{scroll-padding-top:100px}
   -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   transform: none;
-  animation: naumovich-menu-in .28s ease-out both;
+  animation: site-menu-in .28s ease-out both;
 }
 .topbar > .nav.nav-open > a:not(.nav-call),
 .topbar > .nav.nav-open .nav-dropdown-trigger {
@@ -526,7 +526,7 @@ html{scroll-padding-top:100px}
   font-size: 14px;
 }
 .topbar > .nav.nav-open .nav-call span { color: #c3a06e; }
-@keyframes naumovich-menu-in {
+@keyframes site-menu-in {
   from { opacity: .7; clip-path: inset(0 0 0 12%); }
   to { opacity: 1; clip-path: inset(0 0 0 0); }
 }
@@ -638,7 +638,7 @@ html{scroll-padding-top:100px}
 @media(max-width:380px){.topbar{padding:0 4vw}.header-actions{gap:5px}.header-phone{font-size:10px}.topbar .brand{gap:8px}.topbar .brand-copy{font-size:9px}.menu-panel{padding-left:22px;padding-right:22px}}
 
 
-/* TITANARTMASTER visual system aligned with the Naumovich site:
+/* TITANARTMASTER visual system aligned with the shared site design site:
    concrete/milk surfaces, Montserrat headings, restrained burnt-orange accents,
    full-screen photographic hero, clear editorial sections and unified controls. */
 :root {
@@ -913,7 +913,7 @@ h1, h2, h3, h4, .brand-copy, .service-title h3 {
 .footer-social-icons a.footer-social:hover { background:#C65D32; border-color:#C65D32; color:#fff; transform:translateY(-2px); }
 
 
-/* Shared Naumovich design system: palette, typography, controls and social icon treatment. */
+/* Shared shared site design design system: palette, typography, controls and social icon treatment. */
 :root {
   --bg: #E9E8E3;
   --ink: #202322;
@@ -944,7 +944,7 @@ h1, h2, h3, h4, h5, h6 {
 ::selection { background: #C65D32; color: #fff; }
 :where(a, button):focus-visible { outline: 2px solid #C65D32; outline-offset: 4px; }
 
-/* Naumovich-style consistent outlined CTA buttons. */
+/* shared site design-style consistent outlined CTA buttons. */
 .button-primary,
 .menu-contact-button,
 .site-button,
@@ -1011,7 +1011,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Typography and warm neutral surfaces match the Naumovich site. */
+/* Typography and warm neutral surfaces match the shared site design site. */
 .topbar {
   background: rgba(32, 35, 34, .42);
   border-bottom-color: rgba(255,255,255,.18);
@@ -1090,7 +1090,7 @@ h1, h2, h3, h4, h5, h6 {
 .ceiling-card > a { border-top-color: #B8B9B4; font-weight: 600; }
 .ceiling-card > a span { color: #C65D32; }
 
-/* Social SVGs copied from the Naumovich header: same stroke, silhouette and scale. */
+/* Social SVGs copied from the shared site design header: same stroke, silhouette and scale. */
 .menu-social-icons a,
 .contact-social-icons a,
 .footer-social-icons a.footer-social {
@@ -1133,7 +1133,7 @@ h1, h2, h3, h4, h5, h6 {
 .contact-social-icons a { border-color: #ffffff9c; }
 .menu-socials { gap: 10px; }
 
-/* Preserve dark photography-led hero/contact and graphite footer, as on Naumovich. */
+/* Preserve dark photography-led hero/contact and graphite footer, as on shared site design. */
 .hero { color: #E9E8E3; }
 .hero h1 { font-family: "Montserrat", Arial, sans-serif; font-weight: 800; letter-spacing: -.055em; }
 .hero h1 em, .intro h2 em, .section-heading h2 em, .contact-content h2 em { color: #C65D32; }
@@ -1158,7 +1158,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* Full header, slide-in burger and footer layout matched to Naumovich. */
+/* Full header, slide-in burger and footer layout matched to shared site design. */
 .topbar {
   position: fixed !important;
   inset: 0 0 auto !important;
@@ -1283,7 +1283,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .menu-contact-button:hover { background:#C65D32 !important; border-color:#C65D32 !important; color:#fff !important; }
 .footer, .footer-premium { background:#202322 !important; color:#E9E8E3 !important; }
-.footer-main.naumovich-footer-grid {
+.footer-main.site-footer-grid {
   display:grid !important; grid-template-columns:1.15fr .9fr 1.15fr .9fr !important;
   align-items:start; gap:clamp(26px,3.5vw,54px) !important;
   padding:54px 3.2vw 48px !important; margin:0 !important;
@@ -1336,11 +1336,11 @@ h1, h2, h3, h4, h5, h6 {
   .menu-panel { width:min(430px,88vw) !important; padding:80px 24px max(20px,env(safe-area-inset-bottom)) !important; }
   .menu-navigation a { font-size:16px !important; padding:8px 0 !important; }
   .menu-phone { font-size:21px !important; }
-  .footer-main.naumovich-footer-grid { grid-template-columns:1fr 1fr !important; padding:42px 22px 34px !important; gap:34px 24px !important; }
+  .footer-main.site-footer-grid { grid-template-columns:1fr 1fr !important; padding:42px 22px 34px !important; gap:34px 24px !important; }
   .footer-bottom { margin:0 22px !important; align-items:flex-start; flex-direction:column; gap:10px !important; }
 }
 @media (max-width: 480px) {
-  .footer-main.naumovich-footer-grid { grid-template-columns:1fr !important; }
+  .footer-main.site-footer-grid { grid-template-columns:1fr !important; }
   .footer-services-column { display:none; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1348,7 +1348,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* Social icons: clean, unframed marks like the Naumovich header. */
+/* Social icons: clean, unframed marks like the shared site design header. */
 .header-socials.menu-social-icons { gap: 13px !important; }
 .header-socials.menu-social-icons a {
   width: 25px !important; height: 28px !important; flex: 0 0 25px;
@@ -1398,7 +1398,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* Privacy page follows the light, spacious typography of the Naumovich site. */
+/* Privacy page follows the light, spacious typography of the shared site design site. */
 .privacy-page {
   min-height: 65vh; padding: 138px 24px 88px; background: #E9E8E3; color: #202322;
 }
