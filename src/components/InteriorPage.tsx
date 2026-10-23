@@ -30,6 +30,7 @@ export function InteriorPage({ eyebrow, title, description, intro, cards = [], c
           <span className="brand-mark">T<span>A</span></span>
           <span className="brand-copy">TITAN<span>ARTMASTER.PRO</span></span>
         </a>
+        {menuOpen && <button className="inner-menu-backdrop" type="button" aria-label="Закрыть меню" onClick={() => setMenuOpen(false)} />}
         <nav className="inner-nav" aria-label="Основная навигация">
           {nav.map(item => <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>{item.label}</a>)}
           <a className="inner-mobile-phone" href="tel:+375333075077">+375 (33) 307-50-77</a>
