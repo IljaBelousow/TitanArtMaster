@@ -1,13 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { InteriorPage } from "../components/InteriorPage";
 
 export const Route = createFileRoute("/privacy")({ component: PrivacyPage });
 
 function PrivacyPage() {
   return (
-    <main className="privacy-page">
-      <div className="privacy-content">
-        <h1>Политика конфиденциальности</h1>
-      </div>
-    </main>
+    <InteriorPage
+      eyebrow="ПРАВОВАЯ ИНФОРМАЦИЯ"
+      title="Политика конфиденциальности"
+      description=""
+      minimal
+    />
   );
 }
