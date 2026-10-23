@@ -1499,3 +1499,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 .site-shell:has(.hero) .topbar:not(.topbar-scrolled) .header-socials.menu-social-icons a svg path { fill: currentColor; }
 
+
+
+/* Slightly increase everyday text readability across the whole site. */
+body { font-size: 16px; }
+.nav, .nav>a, .nav-dropdown-trigger, .desktop-nav a, .header-phone { font-size: 14px !important; }
+.eyebrow, .hero-bottom, .hero-side-label, .intro-index, .service-meta, .service-tag, .stat small { font-size: 11px; }
+.hero-desc, .intro-bottom>p, .manifesto-copy>p:not(.eyebrow), .service-title p, .special-grid p, .process-heading>p:last-of-type, .process-steps p, .guarantee-detail p, .contact-content>p:not(.eyebrow) { font-size: 15px; }
+.button-primary, .button-text, .nav-call, .footer>span, .footer>a:not(.brand), .footer small, .footer-navigation a, .footer-services-column p, .footer-bottom { font-size: 13px !important; }
+.menu-navigation a { font-size: 18px !important; }
+.menu-caption, .footer-kicker { font-size: 12px !important; }
+.ceiling-tabs a, .ceiling-card>a, .ceiling-card p, .faq-list details p { font-size: 14px; }
+.faq-list summary { font-size: 18px; }
+.privacy-lead { font-size: 19px; }
+.privacy-section p, .privacy-note { font-size: 16px; }
+@media (max-width: 700px) {
+  .hero-desc, .intro-bottom>p, .manifesto-copy>p:not(.eyebrow), .service-title p, .special-grid p, .process-steps p, .guarantee-detail p, .contact-content>p:not(.eyebrow) { font-size: 14px; }
+  .menu-navigation a { font-size: 17px !important; }
+  .privacy-lead { font-size: 17px; }
+}
