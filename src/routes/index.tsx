@@ -31,8 +31,7 @@ function ViberIcon({ size = 21 }: { size?: number }) {
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [ceilingsMenuOpen, setCeilingsMenuOpen] = useState(false);
-  const closeMenu = () => { setMenuOpen(false); setCeilingsMenuOpen(false); };
+  const closeMenu = () => setMenuOpen(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 24);
@@ -42,11 +41,10 @@ function Index() {
   }, []);
 
   useEffect(() => {
-    if (!menuOpen && !ceilingsMenuOpen) return;
+    if (!menuOpen) return;
     const handlePointerDown = (event: PointerEvent) => {
       const target = event.target;
       if (!(target instanceof Element)) return;
-      if (!target.closest(".nav-dropdown")) setCeilingsMenuOpen(false);
       if (menuOpen && !target.closest(".topbar")) setMenuOpen(false);
     };
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -58,7 +56,7 @@ function Index() {
       document.removeEventListener("pointerdown", handlePointerDown);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [menuOpen, ceilingsMenuOpen]);
+  }, [menuOpen]);
 
   return <main className="site-shell">
     <header className={scrolled ? "topbar topbar-scrolled" : "topbar"}>
@@ -71,13 +69,7 @@ function Index() {
         <a href="/" onClick={closeMenu}>Главная</a>
         <a href="/about" onClick={closeMenu}>О компании</a>
         <a href="/services" onClick={closeMenu}>Виды работ</a>
-        <div className="nav-dropdown">
-          <button className="nav-dropdown-trigger" type="button" aria-expanded={ceilingsMenuOpen} onClick={() => setCeilingsMenuOpen(!ceilingsMenuOpen)}>Натяжные потолки <span aria-hidden="true">⌄</span></button>
-          <div className={ceilingsMenuOpen ? "ceiling-dropdown ceiling-dropdown-open" : "ceiling-dropdown"}>
-            {ceilingTypes.map(item => <a key={item.id} href={"#ceiling-" + item.id} onClick={closeMenu}>{item.title}</a>)}
-            <a className="dropdown-all" href="/ceilings" onClick={closeMenu}>Все варианты потолков ↗</a>
-          </div>
-        </div>
+        <a href="/ceilings" onClick={closeMenu}>Натяжные потолки</a>
         <a href="#advantages" onClick={closeMenu}>Преимущества</a>
         <a href="/contacts" onClick={closeMenu}>Контакты</a>
       </nav>
