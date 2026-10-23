@@ -33,6 +33,7 @@ export function InteriorPage({ eyebrow, title, description, intro, cards = [], c
         <nav className="inner-nav" aria-label="Основная навигация">
           {nav.map(item => <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>{item.label}</a>)}
           <a className="inner-mobile-phone" href="tel:+375333075077">+375 (33) 307-50-77</a>
+          <a className="inner-mobile-cta" href="/contacts" onClick={() => setMenuOpen(false)}>Связаться с нами <span>↗</span></a>
         </nav>
         <a className="inner-phone" href="tel:+375333075077">+375 (33) 307-50-77</a>
         <button className="inner-menu-toggle" type="button" aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"} aria-expanded={menuOpen} onClick={() => setMenuOpen(open => !open)}>
