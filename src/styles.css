@@ -1662,3 +1662,39 @@ body { font-size: 16px; }
   .legal-content-shared .legal-index { gap:10px; }
   .legal-content-shared .legal-section { padding:22px 0; }
 }
+
+@media(max-width:1100px) {
+  .inner-topbar { height:74px; min-height:74px; padding:0 6vw; flex-wrap:nowrap; }
+  .inner-nav {
+    display:none;
+    position:fixed;
+    top:0;
+    right:0;
+    left:auto;
+    bottom:0;
+    z-index:30;
+    width:min(420px,100vw);
+    height:100dvh;
+    overflow-y:auto;
+    padding:112px 8vw 36px;
+    background:rgba(21,23,25,.96);
+    border-left:1px solid #ffffff29;
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+    gap:0;
+  }
+  .inner-menu-open .inner-nav { display:flex; }
+  .inner-nav a { font-size:18px; padding:17px 0; border-bottom:1px solid #ffffff29; }
+  .inner-phone { display:none; }
+  .inner-mobile-phone { display:block; color:#C65D32 !important; margin-top:14px; }
+  .inner-menu-open .inner-nav .inner-mobile-cta { display:inline-flex; }
+  .inner-hero { padding:145px 7vw 100px; min-height:100svh; }
+}
+@media(max-width:560px) {
+  .inner-topbar { padding:0 20px; }
+  .inner-nav { padding:105px 26px 30px; }
+  .inner-hero { padding:155px 7vw 105px; }
+}
